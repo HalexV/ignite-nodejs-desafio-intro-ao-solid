@@ -1,0 +1,50 @@
+{
+  "patch": {
+    "tags": [
+      "Users"
+    ],
+    "summary": "Turns a user into an admin user",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "user_id",
+        "description": "The user id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/User.json"
+            },
+            "example": {
+              "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+              "name": "string",
+              "admin": true,
+              "email": "user@example.com",
+              "created_at": "2021-11-15T22:10:38.819Z",
+              "updated_at": "2021-11-15T22:10:38.819Z"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "User not found or others errors",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/Error.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

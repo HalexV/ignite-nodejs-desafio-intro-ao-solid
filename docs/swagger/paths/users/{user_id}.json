@@ -1,0 +1,43 @@
+{
+  "get": {
+    "tags": [
+      "Users"
+    ],
+    "summary": "Returns a user object",
+    "description": "Returns a user profile",
+    "parameters": [
+      {
+        "in": "path",
+        "name": "user_id",
+        "description": "The user id",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/User.json"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "User not found or others errors",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/Error.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}
